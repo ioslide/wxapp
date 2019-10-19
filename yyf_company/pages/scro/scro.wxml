@@ -1,0 +1,59 @@
+<cu-custom  isBack="{{true}}">
+
+</cu-custom>
+
+
+
+<view class="container">
+
+<view class="cu-card case {{isCard?'no-card':''}}" id="cardlist">
+  <view class="cate">
+        <scroll-view scrollX class="scroll_view">
+            <view bindtap="catClick" class="cate-item {{currentTabsIndex==item.id?'hover':''}}" data-catkey="{{catkey}}" data-cid="{{item.id}}" data-fid="{{item.fid}}" style="{{currentTabsIndex==item.id?'border-color:'+tcolor+';color:'+tcolor:''}}" wx:for="{{cats}}" wx:for-index="catkey" wx:key="unique"> {{item.name}} </view>
+        </scroll-view>
+    </view>
+  <view class="cu-item shadow aaaa" wx:for="{{list}}" wx:key="{{index1}}">
+    <view class="image">
+      <navigator url="{{item.url}}"><image src="{{item.thumb}}" mode="widthFix"></image></navigator>
+      <view class="cu-tag bg-blue">{{item.title}}</view>
+      <view class="cu-bar bg-shadeBottom">
+         <navigator url="{{item.url}}"><text class="text-cut">{{item.title}}</text></navigator>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{item.thumb}});"></view>
+        <view class="content flex-sub" >
+         <navigator url="{{item.url}}"> <view class="text-grey">{{item.title}}</view></navigator>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.addtime}}
+            <view class="text-gray text-sm">
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+              <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+              <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+          <view bindtap="loadMore" class="loadMore" data-lastid="{{lastid}}" wx:if="{{show_more=='1'}}">加载更多</view>
+
+        <view class="copyright {{blist.copyright.copyright==''?'mt0':''}}">
+            <block wx:if="{{blist.copyright.copyright!=''}}">
+                <import src="../public/copy.wxml"></import>
+                <template is="copy" data="{{blist:blist}}"></template>
+            </block>
+        </view>
+</view>
+
+
+
+
+</view>
+<block wx:if="{{hide_tabbar=='0'}}">
+    <import src="../public/foot.wxml"></import>
+    <template is="foot" data="{{blist:blist}}"></template>
+</block>

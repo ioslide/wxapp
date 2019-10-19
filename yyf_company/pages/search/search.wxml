@@ -1,0 +1,77 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">搜索结果</view>
+</cu-custom>
+
+<view class="news">
+  <view class="news-div">
+    <view style="margin-bottom:8rpx;" wx:if="{{list!=''}}" wx:for="{{list}}" wx:key="{{index1}}">
+
+      <view wx:if="{{item.type!='6'}}">
+        <!-- <view class="news-item-title1 {{hide_time=='1'?'w100':''}}">
+          <navigator url="{{item.url}}">
+            <text>{{item.title}}</text>
+          </navigator>
+        </view>
+        <view class="news-item-other1" wx:if="{{hide_time=='0'}}">{{item.addtime}}</view> -->
+
+        <view class="cu-card article {{isCard?'no-card':''}}">
+          <view class="cu-item shadow">
+            <view class="title">
+              <view class="text-cut">{{item.title}}</view>
+            </view>
+            <view class="content">
+              <view class="desc">
+                <view>
+                  <navigator url="{{item.url}}">
+                    <view class="cu-tag bg-red light sm round">{{item.title}}</view>
+                  </navigator>
+                  <view class="cu-tag bg-green light sm round">{{item.addtime}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+
+      <view bindtap="listNavApp" class="news-item-content1" data-address="{{item.pageaddress}}" data-appid="{{item.appid}}" wx:else>
+        <view class="news-item-title1 {{hide_time=='1'?'w100':''}}">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="news-item-other1" wx:if="{{hide_time=='0'}}">{{item.addtime}}</view>
+        <view class="cu-card case {{isCard?'no-card':''}}">
+        </view>
+      </view>
+
+
+    </view>
+
+    <view class="cu-chat {{isData?'hide':''}}">
+      <view class="cu-item self">
+        <view class="main">
+          <view class="content bg-green shadow">
+            <text>没有查询到相关内容</text>
+          </view>
+        </view>
+        <view class="cu-avatar round lg bg-mauve margin-xs">
+        <text class="avatar-text">XHY</text>
+        </view>
+        <view class="date">{{item.addtime}}</view>
+      </view>
+        <view class="cu-info round">请换个关键词试试看吧</view>
+    </view>
+    
+  </view>
+</view>
+
+<view class="copyright {{blist.copyright.copyright==''?'mt0':''}}">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml"></import>
+    <template is="copy" data="{{blist:blist}}"></template>
+  </block>
+</view>
+<block wx:if="{{hide_tabbar=='0'}}">
+  <import src="../public/foot.wxml"></import>
+  <template is="foot" data="{{blist:blist}}"></template>
+</block>

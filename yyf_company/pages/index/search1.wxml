@@ -1,0 +1,13 @@
+<template name="search">
+<view class="cu-bar bg-white search " style="top:{{CustomBar}}px; border-radius:25px">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input bindconfirm="search" type="text" placeholder="输入搜索的关键词" confirm-type="search" confirmType="search" placeholderClass="ptext" ></input>
+  </view>
+  <view class="action">
+    <button bindtap="search" confirm-type="search" confirmType="search"  class="cu-btn bg-gradual-green shadow-blur round">搜索</button>
+  </view>
+</view>
+
+
+</template>

@@ -1,0 +1,97 @@
+<image mode="widthFix" src="{{form.thumb}}" style="width:100%;" wx:if="{{form.thumb}}"></image>
+
+<view style="font-size:14px; color:#666; width:95%; margin:0 auto; line-height:20px;{{form.thumb=='0'?'margin-top:10px':''}}" wx:if="{{form.desc}}">{{form.desc}}</view>
+
+<form bindsubmit="reportTicket" report-submit>
+  <view class="cu-form-group margin-top" style="padding:1rpx 0;margin:0 30rpx" wx:if="{{form.t2show==1}}">
+    <view class="title">{{form.t2name}}：</view>
+    <input bindinput="t2" placeholder=""></input>
+  </view>
+  <view class="cu-form-group" style="border-bottom: 1rpx solid #eee;padding:1rpx 0;margin:0 30rpx" wx:if="{{form.t1show==1}}">
+    <view class="title">{{form.t1name}}：</view>
+    <input bindinput="t1" placeholder=""></input>
+    <view class="cu-capsule radius">
+      <view class="cu-tag bg-mauve">
+        +86
+      </view>
+      <view class="cu-tag line-blue">
+        中国大陆
+      </view>
+    </view>
+  </view>
+
+  <view class="order_item" wx:if="{{form.t3show==1}}">
+    <view class="order_title">
+      <view class="title">
+        <text wx:if="{{form.t3full==1}}">*</text>{{form.t3name}}</view>
+      <view class="info">
+        <input bindinput="t3" type="text"></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="order_item" wx:if="{{form.t4show==1}}">
+    <view class="order_title">
+      <view class="title">
+        <text wx:if="{{form.t4full==1}}">*</text>{{form.t4name}}</view>
+      <view class="info">
+        <input bindinput="t4" type="text"></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="order_item item_radio" wx:if="{{form.rshow==1}}">
+    <view class="order_title">
+      <view class="title">
+        <text wx:if="{{form.rfull==1}}">*</text>{{form.rname}}</view>
+      <view class="info">
+        <radio-group bindchange="radioChange" class="radio-group">
+          <view class="radio" wx:for="{{form.rvalue}}">
+            <radio value="{{item}}"></radio>{{item}}
+          </view>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>{{form.cname}}
+    </view>
+  </view>
+
+  <checkbox-group bindchange="checkChange">
+    <view class="cu-form-group" style="padding:1rpx 0;margin:0 30rpx" wx:if="{{form.cshow==1}}" wx:for="{{form.cvalue}}">
+      <!-- <view class="title">{{form.cname}}</view> -->
+      <text style="">{{item}}</text>
+      <checkbox value="{{item}}"></checkbox>
+    </view>
+  </checkbox-group>
+
+  <view class="cu-form-group margin-top" style="padding:1rpx 0;margin:0 30rpx;border-top: 1rpx solid #eee;border-bottom: 1rpx solid #eee;" wx:if="{{form.ashow==1}}">
+    <textarea bindinput="textareaBlur" maxlength="-1" disabled="{{modalName!=null}}" placeholder="{{form.aname}}"></textarea>
+  </view>
+  <view class="padding flex flex-direction padding-top-sm">
+    <button formType="submit" class="cu-btn bg-grey lg" style="border-radius:50rpx;background:#ffc754" hover-class="none" bindtap="submitClick">Mail me</button>
+  </view>
+  <view class="padding flex flex-direction padding-top-sm">
+    <button open-type="contact" class="cu-btn bg-grey lg" style="border-radius:50rpx;background:#ffc754" hover-class="none">Online Chat</button>
+  </view>
+  <ticket-report-wrapper>
+    上报 formid
+  </ticket-report-wrapper>
+ 
+</form>
+
+
+<view class="copyright {{blist.copyright.copyright==''?'mt0':''}}" style="margin-bottom:200rpx">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml"></import>
+    <template is="copy" data="{{blist:blist}}"></template>
+  </block>
+</view>
+
+<block wx:if="{{hide_tabbar=='0'}}">
+  <import src="../public/foot.wxml"></import>
+  <template is="foot" data="{{blist:blist}}"></template>
+</block>

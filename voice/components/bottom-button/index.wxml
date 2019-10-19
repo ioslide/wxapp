@@ -1,0 +1,11 @@
+<view class="flex solid-bottom padding justify-end" style="width: 100%;" hidden="{{hidden}}">
+  <view wx:for="{{buttons}}" wx:for-item="button" wx:key="{{button.lang}}" style="margin-bottom: 120rpx;margin-right:20rpx" class="button-item">
+    <!-- <view class="button-label">{{button.msg}}</view> -->
+
+    <view catchtouchstart="streamRecord" catchtouchend="endStreamRecord" data-conf="{{button}}" class="button-press">
+      <!-- <span class="text-in-button {{ button.buttonType == 'press' ? 'text-press': '' }}">{{button.buttonText}}</span> -->
+      <image class="button-background" src="{{buttonBackground[button.lang][button.buttonType]}}"></image>
+    </view>
+  </view>
+
+</view>

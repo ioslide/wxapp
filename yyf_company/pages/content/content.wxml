@@ -1,0 +1,192 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<cu-custom bgImage="https://teaimg.ioslide.com/headerbg.png" isBack="{{true}}">
+  <view slot="backText"></view>
+  <view slot="content"></view>
+</cu-custom>
+<view class="container">
+  <!-- <view class="title" wx:if="{{hide_title=='0'}}">
+    {{article.title}}
+  </view>
+  <view class="dateshare">
+    <view class="date" wx:if="{{hide_time=='0'}}">
+      {{article.addtime}}
+    </view>
+
+    <view bindtap="powerDrawer" class="share" data-statu="open" wx:if="{{show_share=='1'}}">
+      <view class="shareico">
+        <image src="../../resource/images/share.png"></image>
+      </view>
+      <view class="sharetitle">分享</view>
+    </view>
+
+  </view>
+ -->
+
+
+  <view class="cu-chat">
+    <view class="cu-card dynamic">
+      <view class="cu-item shadow" style="margin: 5rpx 5rpx 140rpx 5rpx;padding:30rpx 0 0 0">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg bg-mauve ">
+              <text class="avatar-text">XHY</text>
+            </view>
+            <view class="content flex-sub">
+              <view>{{article.title}}</view>
+              <view class="text-gray text-sm flex justify-between">
+                {{article.addtime}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="text-content">
+          <block wx:if="{{article.audio_src}}">
+            <import src="audio.wxml"></import>
+            <view class="audio_div">
+              <template is="audio" data="{{article:article}}"></template>
+            </view>
+          </block>
+          <template is="wxParse" data="{{wxParseData:article1.nodes}}"></template>
+        </view>
+        <view class="text-gray text-sm text-right padding">
+          <view class="para_div {{cateSys.close_comment=='1'&&cateSys.hide_vote=='1'&&cateSys.hide_read=='1'?'hide':''}}">
+            <view class="left">
+              <view class="read_layout" wx:if="{{cateSys.hide_read!='1'}}">
+                <view class="cu-capsule">
+                  <view class="cu-tag bg-blue">
+                    <text class="cuIcon-attentionfavor lg text-white"></text>
+                  </view>
+                  <view class="cu-tag line-blueLight">
+                    {{article.read_num}}
+                  </view>
+                </view>
+                <view class="cu-capsule" bindtap="upvoteAction">
+                  <view class="cu-tag bg-blue">
+                    <text class="cuIcon-appreciate lg text-white"></text>
+                  </view>
+                  <view class="cu-tag line-blueLight">
+                    {{article.vote_num}}
+                  </view>
+                </view>
+              </view>
+              <view bindtap="powerDrawer" class="upvote_layout" data-statu="open">
+                <image src="../../resource/images/share.png"></image>
+                <view class="r_text">分享</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <view class="cu-chat" wx:if="{{cateSys.close_comment!='1'}}" id="chatcontent">
+
+    <view class="cu-item self" wx:for="{{commentList}}">
+      <view class="main">
+        <view class="content shadow">
+          <text> {{item.content}}</text>
+
+        </view>
+      </view>
+      <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big143004.jpg);"></view>
+      <view class="date "> {{item.date}}</view>
+
+    </view>
+  </view>
+
+
+  <view class="cu-bar foooot input" animation="{{buttomani}}">
+    <view class="container">
+      <scroll-view id="scroll-content" scroll-top="{{scroll_top}}" scroll-y="true" class="dialog-part" scroll-into-view="translate-{{toView}}" enable-back-to-top="true" scroll-with-animation="true">
+
+        <view class="dialog-wrap" id="translate-empty" wx:if="{{!recording && dialogList.length == 0}}">
+          <result-bubble item="{{initTranslate}}" record-status="0"></result-bubble>
+        </view>
+
+        <view wx:for="{{dialogList}}" wx:key="id" class="dialog-wrap" data-index="{{index}}" catchmodaldelete="deleteItem">
+          <result-bubble item="{{item}}" edit-show="{{index==dialogList.length-1}}" index="{{index}}" current-translate-voice="{{currentTranslateVoice}}" bindtranslate="translateTextAction" bindexpired="expiredAction"></result-bubble>
+        </view>
+
+        <view class="dialog-wrap" id="translate-recording" wx:if="{{recording}}">
+          <result-bubble item="{{currentTranslate}}" record-status="{{recordStatus}}"></result-bubble>
+        </view>
+        <view id="translate-fake"></view>
+
+      </scroll-view>
+    </view>
+  </view>
+
+
+  <view bindtap="hideComment" class="shade {{isshow==true?'show':'hide'}}"></view>
+
+
+  <view  animation="{{animationbuttom}}" class="cu-bar fooot flex solid-bottom justify-center" catchlongpress="catchTapEvent">
+    <bottom-button  style="width: 100%;" button-disabled="{{bottomButtonDisabled}}" bindrecordstart="streamRecord" bindrecordend="streamRecordEnd"></bottom-button>
+  </view>
+
+  <view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" animation="{{inputanimation}}" style="bottom:{{InputBottom}}px">
+    <view class="action" bindtap='bindfollow'>
+      <text class="cuIcon-order text-grey"></text>
+    </view>
+
+    <input bindinput="textareaBlur" class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+
+    <!-- <view class="action">
+      <text class="cuIcon-emojifill text-grey"></text>
+    </view> -->
+    <button bindtap="startRating" class="cu-btn bg-green shadow">发送</button>
+  </view>
+
+</view>
+
+<!-- 
+  <view class="copyright {{blist.copyright.copyright==''?'mt0':''}}">
+    <block wx:if="{{blist.copyright.copyright!=''}}">
+      <import src="../public/copy.wxml"></import>
+      <template is="copy" data="{{blist:blist}}"></template>
+    </block>
+  </view> -->
+
+
+<view bindtap="powerDrawer" class="drawer_screen" data-statu="close" wx:if="{{showModalStatus}}"></view>
+
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+  <view class="drawer_content">
+
+    <view class="cu-bar bg-white margin-top">
+      <view class="action" style="margin-left:0rpx">
+        <button openType="share" plain="true" style="font-size: 15px;border: none;">
+          <text class="cuIcon-title text-orange ">分享页面给朋友</text>
+        </button>
+      </view>
+      <view class="action" style="margin-right:0rpx">
+        <button class="cu-btn bg-green shadow" bindtap="shareaction" data-target="Modal">生成海报分享到朋友圈</button>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class="shade {{isShow?'show':'hide'}}"></view>
+
+
+<view class="cu-modal {{isShow?'show':'hide'}}">
+  <view class="cu-dialog">
+    <view class="bg-img" mode="widthFix" style="background-image: url('{{code}}');height:400px;">
+
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close " bindtap="closeRoom"></text>
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="saveImgAction">保存至相册</view>
+    </view>
+  </view>
+</view>

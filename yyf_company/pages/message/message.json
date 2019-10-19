@@ -1,0 +1,7 @@
+{
+  "component": true,
+    "usingComponents": {
+      "cax-element": "../../../cax/index",
+      "ticket-report-wrapper": "plugin://sdkPlugin/ticket-report-wrapper"
+    }
+}

@@ -1,0 +1,335 @@
+<import src="ad.wxml"></import>
+<import src="adnav.wxml"></import>
+<import src="adnotice.wxml"></import>
+<import src="../public/adsense.wxml"></import>
+
+
+<!-- <scroll-view style="-webkit-overflow-scrolling:touch" scroll-y="true" scroll-with-animation="true"
+        class="DrawerPage {{modalName=='viewModal'?'show':''}}"> -->
+
+<view class="container" id="box">
+
+  <!-- <view class="cu-item headico" bindtap="showModal" data-target="viewModal"> -->
+  <view class="cu-item headico">
+    <view class="action">
+    </view>
+  </view>
+
+  <view class="flex solid-bottom padding-xl justify-center">
+    <view class="padding margin-top-lg" style="margin-top: 13.3%;">
+      <view class="text-left text-xxxsl" style="font-weight:100;color:#abaaab;white-space: pre-wrap;">I'am lucky because my work is also one of my passions I specialized in front-end development but also like trying out other technologies in order to become more flexible.
+      </view>
+      <view class="text-left text-df" style="font-weight:400;white-space: pre-wrap	;">I enjoy collaborating on interesting projects that I can be proud of.
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <template is="ad" data="{{adSlide:adSlide}}"></template>
+
+  <view class="bus-bg {{nav_close=='1'?'hide':''}}" wx:if="{{nav_style==1}}">
+    <view class="bus bus2">
+      <view bindtap="{{item.cateurl=='tel'?'tel':''}}{{item.cateurl=='driver'?'driver':''}}{{item.cateurl!='driver'&&item.cateurl!='tel'?'navto':''}}" class="bus-item2" data-nid="{{nid}}" style="{{nav_height!=''?'height:'+nav_height+'px':''}}" wx:for="{{cats}}"
+        wx:for-index="nid" wx:key="{{index}}">
+        <image src="{{item.thumb}}" style="{{nav_height!=''?'height:'+nav_height+'px':''}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class="bus-bg {{nav_close=='1'?'hide':''}}" wx:if="{{nav_style==2}}">
+    <view class="bus bus3">
+      <view bindtap="{{item.cateurl=='tel'?'tel':''}}{{item.cateurl=='driver'?'driver':''}}{{item.cateurl!='driver'&&item.cateurl!='tel'?'navto':''}}" class="bus-item3" data-nid="{{nid}}" style="height:{{nav_height}}px" wx:for="{{cats}}" wx:for-index="nid"
+        wx:key="{{index}}">
+        <image src="{{item.thumb}}" style="height:{{nav_height}}px"></image>
+      </view>
+    </view>
+  </view>
+  <template is="adnav" data="{{adNav:adNav}}"></template>
+
+
+
+  <view class="swiper {{slide_close=='1'?'hide':''}}">
+    <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="3000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+
+      <swiper-item wx:for="{{slide}}" wx:for-index="fidx" wx:key="{{index}}" class="{{cardCur==index?'cur':''}}">
+
+        <image bindtap="slideAction" data-id="{{fidx}}" mode="widthFix" src="{{item.images}}" wx:if="{{item.kind!='3'}}" class="nav-icon"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="flex padding-xl justify-center" style="overflow: hidden;padding-bottom:0">
+
+    <cax-element class="flex justify-center" style="z-index:1" id="svg-b"></cax-element>
+
+  </view>
+  <!-- 
+      
+    <view class="flex solid-bottom padding-xl justify-center" style="padding-top:0">
+      <image src="https://teaimg.ioslide.com/indexbg1svg.png" mode="widthFix" style="width"></image>
+    </view> -->
+
+
+  <view class="flex solid-bottom padding justify-center">
+    <view class="flex-sub text-center">
+      <image src="https://teaimg.ioslide.com/navimg3.png" mode="widthFix" style="width:65rpx"></image>
+      <text class="text-black text-bold text-xl">
+                        Transparent
+                    </text>
+      <view class="padding" style="font-weight:100;color:#abaaab;white-space: pre-line	">
+        As advocates of equity, we promote honesty and open communication in order to affect meaningful change. We are proud of the decisions we make and are up front about our actions.
+      </view>
+    </view>
+  </view>
+  <view class="flex solid-bottom padding justify-center">
+
+    <view class="flex-sub text-center">
+      <image src="https://teaimg.ioslide.com/navimg6.png" mode="widthFix" style="width:65rpx"></image>
+      <text class="text-black text-bold text-xl">
+                        Courageous
+                    </text>
+      <view class="padding" style="font-weight:100;color:#abaaab;white-space: pre-line	">
+        Success often happens beyond our comfort zone. In order to challenge the status quo, we are prepared to expand ours, and we encourage our allies to try too.
+      </view>
+    </view>
+  </view>
+  <view class="flex solid-bottom padding justify-center">
+
+    <view class="flex-sub text-center">
+      <image src="https://teaimg.ioslide.com/navimg5.png" mode="widthFix" style="width:65rpx"></image>
+      <text class="text-black text-bold text-xl">
+                        Empowering
+                    </text>
+      <view class="padding" style="font-weight:100;color:#abaaab;white-space: pre-line	">
+        Changing the world is a tall order that requires collective participation. To enable positive, productive change, we value lifting people up rather than bringing them down.
+      </view>
+    </view>
+  </view>
+
+  <view class="flex solid-bottom padding-xl justify-center">
+    <cax-element class="flex justify-center" id="svg-c"></cax-element>
+  </view>
+
+
+
+  <view class="padding margin-top" style="margin-top: 13.3%;">
+    <view class="text-left padding text-xxxl" style="font-weight:100;color:#abaaab">As Senn in
+    </view>
+  </view>
+
+  <view class="flex solid-bottom padding justify-around">
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+  </view>
+  <view class="flex solid-bottom padding justify-around">
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+  </view>
+  <view class="flex solid-bottom padding justify-around">
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+    <view class="bg-grey padding-sm margin-xs radius">around</view>
+  </view>
+
+
+  <template is="adnotice" data="{{adNotice:adNotice}}"></template>
+  <template is="adsense" data="{{adsense:adsense}}"></template>
+  <view class="{{adsense.ad_img||adsense.ad1_img?'mt15':''}}" wx:for="{{list}}" wx:for-index="fidx" wx:key="{{fidx}}">
+    <block wx:if="{{item.type==''||item.type==undefined}}">
+      <import src="adcontent.wxml"></import>
+      <template is="adcontent" data="{{item:item,fidx:fidx}}"></template>
+    </block>
+
+
+    <block wx:if="{{item.type==2}}">
+      <import src="title.wxml"></import>
+      <view class="news" style="margin-top:{{item.mt}}px">
+        <template is="title" data="{{item:item}}"></template>
+        <view class="news-div">
+          <view class="news-item" wx:for="{{item.list}}" wx:key="{{index1}}">
+            <view class="news-item-img">
+              <navigator url="{{item.url}}">
+                <image src="{{item.thumb}}"></image>
+              </navigator>
+            </view>
+            <view class="news-item-content">
+              <navigator url="{{item.url}}">
+                <view class="news-item-title">
+                  <text>{{item.title}}</text>
+                </view>
+                <view class="news-item-other" wx:if="{{hide_time=='0'}}">{{item.addtime}}</view>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{item.type==4}}">
+      <import src="title.wxml"></import>
+      <view class="news" style="margin-top:{{item.mt}}px">
+        <template is="title" data="{{item:item}}"></template>
+        <view class="news-div">
+          <view class="news-item" style="margin-bottom:8rpx;" wx:for="{{item.list}}" wx:key="{{index1}}">
+            <view class="news-item-content1">
+              <view class="news-item-title1 {{hide_time=='1'?'w100':''}}">
+                <navigator url="{{item.url}}">
+                  <text>{{item.title}}</text>
+                </navigator>
+              </view>
+              <view class="news-item-other1" wx:if="{{hide_time=='0'}}">{{item.addtime}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{item.type==5}}">
+      <import src="title.wxml"></import>
+      <view class="service " style="margin-top:{{item.mt}}px">
+        <template is="title" data="{{item:item}}"></template>
+        <view class="image-item" wx:for="{{item.list}}" wx:key="{{index2}}">
+          <navigator url="{{item.url}}">
+            <image src="{{item.thumb}}"></image>
+            <view class="image-item-bg image-position"></view>
+            <view class="image-item-text image-position">{{item.title}}</view>
+          </navigator>
+        </view>
+
+      </view>
+    </block>
+    <block wx:if="{{item.type==3}}">
+      <import src="title.wxml"></import>
+      <import src="../../../wxParse/wxParse.wxml"></import>
+      <view class="service " style="margin-top:{{item.mt}}px">
+        <template is="title" data="{{item:item}}"></template>
+        <view class="">
+          <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:contentList[item.id].nodes}}"></template>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{item.type==6}}">
+      <import src="title.wxml"></import>
+      <view class="service" style="margin-top:{{item.mt}}px">
+        <template is="title" data="{{item:item}}"></template>
+        <view class="service-div">
+          <view bindtap="navigateMini" class="service-item" style="width:100%" data-fid="{{fidx}}" data-sid="{{sidx}}" wx:for="{{item.list}}" wx:for-index="sidx" wx:key="{{sidx}}">
+            <image src="{{item.thumb}}"></image>
+            <view class="service-item-text">
+              <text>{{item.title}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{item.type==7}}">
+      <import src="title.wxml"></import>
+      <view class="service " style="margin-top:{{item.mt}}px">
+        <template is="title" data="{{item:item}}"></template>
+        <view class="image-item video-item" wx:for="{{item.list}}" wx:for-index="sidx" wx:key="{{index2}}">
+          <video autoplay="true" objectFit="fill" src="{{item.videosrc}}" wx:if="{{item.show_video}}"></video>
+          <block wx:if="{{!item.show_video}}">
+            <image src="{{item.thumb}}"></image>
+            <view bindtap="playVideo" class="playimg_div" data-fidx="{{fidx}}" data-sidx="{{sidx}}">
+              <image src="../../resource/images/play.png"></image>
+            </view>
+            <view bindtap="playVideo" class="image-item-bg image-position" data-fidx="{{fidx}}" data-sidx="{{sidx}}"></view>
+            <view class="image-item-text image-position">
+              <view class="video_text">{{item.title}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="copyright {{blist.copyright.copyright==''?'mt0':''}}">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml"></import>
+    <template is="copy" data="{{blist:blist}}"></template>
+  </block>
+</view>
+
+<!-- 
+
+    </scroll-view> -->
+
+<view class='fullscreen bg-white {{fscreen == 1 ? "dnone" : ""}}' catchtouchmove="ture" animation="{{fscreenani}}">
+  <view class="flex padding-xl justify-center" style="overflow: hidden;padding-bottom:0;width:100vw;height:100vh">
+    <view class="flex solid-bottom padding justify-center">
+      <cax-element style="z-index:1" id="svg-xhy">
+        <view class="flex solid-bottom padding justify-center" style="margin: 700rpx 0 100rpx 0">
+          <!-- 滑动触发 -->
+          <!-- <ticket-report-wrapper bindtap="formIdReport" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'> -->
+
+          <!-- <ticket-report-wrapper>
+            <view >
+             <button bindtap="fadeboxfn" animation="{{fadeboxani}}" class='fadebox {{fadeboxscreen == 1 ? "dnonee" : ""}}'  bindtouchstart='fadeboxfn' open-type="getUserInfo" bindgetuserinfo="userInfoHandler" ></button>
+            </view>
+          </ticket-report-wrapper> -->
+
+          
+          <ticket-report-wrapper bindlongtap="longpress">
+            <view class="slideIn">
+              <button open-type="getUserInfo" bindgetuserinfo="userInfoHandler" class="learn-more">
+                <view class="circle">
+                  <view class="icon arrow"></view>
+                </view>
+                <text class="button-text">长按进入</text>
+              </button>
+            </view>
+          </ticket-report-wrapper>
+        </view>
+         <form report-submit="ture" bindsubmit="formID">
+            <button formType="submit" open-type="getUserInfo" bindgetuserinfo="userInfoHandler" style="opacity: 0;height: 15vh;">123123123</button>
+          </form>
+      </cax-element>
+    </view>
+  </view>
+
+
+
+</view>
+<view animation="{{footanima}}">
+  <block wx:if="{{hide_tabbar=='0'}}">
+    <import src="../public/foot.wxml"></import>
+    <template is="foot" data="{{blist:blist}}"></template>
+  </block>
+</view>
+<!-- <view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+    <text class="cuIcon-pullright"></text>
+</view>
+ -->
+
+<!-- <scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}" style="padding: 15% 0 0 0;">
+  <view class="padding">
+    <view class="flex flex-wrap" style="height: 40px;">
+
+      <block wx:if="{{hide_search=='0'}}">
+        <block wx:if="{{head_color!=''}}">
+          <import src="search.wxml"></import>
+          <template is="search" data="{{head_color:head_color}}"></template>
+        </block>
+        <block wx:else>
+          <import src="search1.wxml"></import>
+          <template is="search" data="{{tcolor:tcolor}}"></template>
+        </block>
+      </block>
+    </view>
+  </view>
+
+  <view class="bus-bg bg-gradual-pink padding radius text-center shadow-blur {{nav_close=='1'?'hide':''}}" wx:if="{{nav_style==0}} " style="height: 150px;">
+    <view class="bus">
+      <view bindtap="{{item.cateurl=='tel'?'tel':''}}{{item.cateurl=='driver'?'driver':''}}{{item.cateurl!='driver'&&item.cateurl!='tel'?'navto':''}}" class="bus-item" data-nid="{{nid}}" wx:for="{{cats}}" wx:for-index="nid" wx:key="{{index}}">
+        <image src="{{item.thumb}}"></image>
+        <text style="color:#fff">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+</scroll-view> -->

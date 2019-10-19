@@ -1,0 +1,56 @@
+<scroll-view scroll-y class="scrollPage">
+
+  <cu-custom>
+    <view slot="backText"></view>
+    <view slot="content"></view>
+  </cu-custom>
+
+  <view class="padding bg-white">
+    <view class="text-left padding text-xxl" style="font-weight:300">I'am lucky because my work is also one of my passions I specialized in front-end development but also like trying out other technologies in order to become more flexible.
+    </view>
+    <view class="text-left padding text-df" style="font-weight:400;">
+      I enjoy collaborating on interesting projects that I can be proud of.
+    </view>
+  </view>
+
+  <view class="padding flex flex-direction padding-top-sm">
+    <navigator class="cu-btn bg-grey lg" style="border-radius:50rpx;background:#ffc754" url="/" hover-class="none">Mail me</navigator>
+  </view>
+
+  <view class="padding flex flex-direction padding-top-xs">
+    <navigator class="cu-btn bg-grey lg contactbutton" role="button" aria-disabled="false" url="../contact/log/log" hover-class="none">Call me</navigator>
+
+  </view>
+
+  <view class="cu-list menu  margin-bottom-xl shadow-lg">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/ioslide">
+        <text class="text-grey">GitHub</text>
+      </view>
+    </view>
+
+    <view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://codepen.io/ioooo">
+
+        <text class="text-grey">Dribbble</text>
+      </view>
+    </view>
+
+    <view class="cu-item arrow">
+      <navigator class="content" url="../contact/log/log" hover-class="none">
+        <text class="text-grey">Log</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="text-grey">Wechat</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+  <block wx:if="{{hide_tabbar=='0'}}">
+    <import src="../public/foot.wxml"></import>
+    <template is="foot" data="{{blist:blist}}"></template>
+  </block>
+
+</scroll-view>

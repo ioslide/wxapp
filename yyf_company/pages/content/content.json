@@ -1,0 +1,12 @@
+{
+    "window": {
+        "navigationBarTitleText": "内容"
+    },
+      "usingComponents": {
+        "bottom-button": "/voice/components/bottom-button/index",
+        "result-bubble": "/voice/components/result-bubble/index",
+            "modal": "/voice/components/modal/index",
+            "waiting-icon": "/voice/components/waiting-icon/index",
+            "play-icon": "/voice/components/play-icon/index"
+      }
+}

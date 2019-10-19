@@ -1,0 +1,9 @@
+{
+  "window": {
+    "navigationBarTitleText": "内容"
+  },
+  "usingComponents": {
+    "cax-element": "../../../cax/index",
+    "ticket-report-wrapper": "plugin://sdkPlugin/ticket-report-wrapper"
+  }
+}

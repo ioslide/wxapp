@@ -1,0 +1,7 @@
+{
+    "window": {
+        "navigationBarTitleText": "内容"
+    }  ,"usingComponents": {
+      "cax-element": "../../../cax/index"
+    }
+}

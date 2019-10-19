@@ -1,0 +1,3 @@
+<template name="video">
+    <video src="{{article.videosrc}}" style="width:100%;"></video>
+</template>

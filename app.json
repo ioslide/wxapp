@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "yyf_company/pages/index/index",
+    "yyf_company/pages/scro/scro",
+    "yyf_company/pages/imglist/imglist",
+    "yyf_company/pages/message/message",
+    "yyf_company/pages/contact/contact",
+    "yyf_company/pages/case/case",
+    "yyf_company/pages/content/content",
+    "yyf_company/pages/about/about",
+    "yyf_company/pages/news/news",
+    "yyf_company/pages/video/video",
+    "yyf_company/pages/newsnoimg/newsnoimg",
+    "yyf_company/pages/videolist/videolist",
+    "yyf_company/pages/webview/webview",
+    "yyf_company/pages/search/search",
+    "yyf_company/pages/works/index",
+    "voice/pages/index/index",
+    "yyf_company/pages/home/index",
+    "voice/pages/edit/edit"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.1",
+      "provider": "wx069ba97219f66d99"
+    },
+    "sdkPlugin": {
+      "version": "2.9.0",
+      "provider": "wxc6b86e382a1e3294"
+    }},
+  "usingComponents": {
+    "ticket-report-wrapper": "plugin://sdkPlugin/ticket-report-wrapper",
+    "cu-custom": "colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

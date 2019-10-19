@@ -1,0 +1,97 @@
+<view class="container">
+
+  <view class="flex scroll-view-container">
+    <cu-custom>
+      <view slot="backText"></view>
+      <view slot="content"></view>
+    </cu-custom>
+    <scroll-view bindscroll="getScroll" style="-webkit-overflow-scrolling:touch" scroll-y="true">
+      <view animation="{{animatetext1}}" class="flex bg-white scrolltextt" style="opacity:1;left:-100rpx">
+        <view class="text-left padding text-sl" style="font-weight:600;height:150rpx;color:#4d76a4">
+          JavaScript Vue Element Nuxt Redux Ant Design Next Gatsby JavaScript Vue Element Nuxt Redux Ant Design Next Gatsby JavaScript Vue Element Nuxt Redux Ant Design Next Gatsby JavaScript Vue Element Nuxt Redux Ant Design Next Gatsby JavaScript Vue Element
+          Nuxt Redux Ant Design Next Gatsby JavaScript Vue Element Nuxt Redux Ant Design Next Gatsby
+        </view>
+      </view>
+
+      <view class="flex bg-white scrolltextt" style="opacity:0.7;left:-100rpx" animation="{{animatetext2}}">
+        <view class="text-left padding text-sl" style="font-weight:600;height:150rpx;color:#f39ca5">D3 Mermaid P5 Zdog Cesium react-three-fiber Frappe Recharts Chart.js Echarts plotly Highcharts Mermaid P5 Zdog Cesium react-three-fiber Frappe Recharts Chart.js Echarts plotly Highcharts Mermaid P5 Zdog Cesium react-three-fiber Frappe Recharts
+          Chart.js Echarts plotly Highcharts Mermaid P5 Zdog Cesium react-three-fiber Frappe Recharts Chart.js Echarts plotly Highcharts Mermaid P5 Zdog Cesium react-three-fiber Frappe Recharts Chart.js Echarts plotly Highcharts
+        </view>
+      </view>
+
+      <view class="flex bg-white scrolltextt" style="opacity:0.3;left:-100rpx" animation="{{animatetext3}}">
+        <view class="text-left padding text-sl" style="font-weight:600;height:150rpx;color:#ffc754">Redux React boilerplate Reselect dva redux-form Calypso Redux React boilerplate Reselect dva redux-form CalypsoRedux React boilerplate Reselect dva redux-form CalypsoRedux React boilerplate Reselect dva redux-form CalypsoRedux React boilerplate
+          Reselect dva redux-form CalypsoRedux React boilerplate Reselect dva redux-form Calypso
+        </view>
+      </view>
+
+
+      <image animation="{{animateimage}}" src="https://teaimg.ioslide.com/shape-half-circle.4185dce2.png" mode="widthFix" style="position:absolute"></image>
+      <view class="flex solid-bottom justify-center margin-top-lg" style="overflow: hidden;height: 800rpx">
+
+        <view class="solid-bottom justify-left margin-top-lg" style="overflow: hidden;position:absolute;left:0rpx;bottom:30rpx">
+          <image src="https://teaimg.ioslide.com/about-features-1.d1e0571d.png" mode="widthFix" style="width:450rpx"></image>
+        </view>
+      </view>
+
+      <view class="flex solid-bottom padding-xl justify-center">
+        <view class="padding margin-top-lg" style="margin-top: 13.3%;">
+          <view class="text-left text-xl" style="font-weight:100;color:#abaaab;white-space: pre-wrap;">I'am lucky because my work is also one of my passions I specialized in front-end development but also like trying out other technologies in order to become more flexible.
+          </view>
+          <view class="text-left text-df" style="font-weight:400;white-space: pre-wrap	;">I enjoy collaborating on interesting projects that I can be proud of.
+          </view>
+        </view>
+      </view>
+
+      <image animation="{{animateimage1}}" src="https://teaimg.ioslide.com/shape-square.90790b9d.png" mode="widthFix" style="position:absolute"></image>
+      <view class="flex solid-bottom justify-center margin-top-lg" style="overflow: hidden;height: 800rpx">
+
+        <view class="solid-bottom justify-left margin-top-lg" style="overflow: hidden;position:absolute;right:0rpx;bottom:30rpx">
+          <scroll-view scroll-y="true" style="height: 88%;position: absolute;z-index: 101;right: 0;top: 20rpx;width: 100%;">
+            <view class="cu-list menu card-menu margin-top shadow-lg" style=" margin-right:5rpx" wx:for="{{list}}" wx:for-index="fidx" wx:key="{{fidx}}">
+              <view class="cu-item arrow" wx:for="{{item.list}}" wx:key="{{index2}}">
+                <navigator url="{{item.url}}">
+                  <view class=" content cu-item arrow">
+                    <text>{{item.title}}</text>
+                  </view>
+                </navigator>
+              </view>
+            </view>
+          </scroll-view>
+          <image src="https://teaimg.ioslide.com/about-features-2.c4aec41a9.png" mode="widthFix" style="width:450rpx"></image>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+<view animation="{{footanima}}">
+  <view class="we7-bottom aaaa" style="background-color:{{blist.background_color}};border-color:{{blist.border_color}};">
+
+      <view class="we7-bottom-item">
+      <button bindtap="{{blist.m1_path=='tel'?'tel':''}}{{blist.m1_path=='driver'?'driver':''}}" openType="{{blist.m1_path=='custom'?'contact':''}}"></button>
+      <view bindtap="tabNav" class="aview" data-tab="tab1" data-url="../home/index" ></view>
+      <image class="item-img" mode="widthFix" src="https://teaimg.ioslide.com/navimg1.png"></image>
+      <view class="item-text" style="color: {{blist.sel_color}}" >Home</view>
+    </view>
+      <view class="we7-bottom-item">
+      <button bindtap="{{blist.m2_path=='tel'?'tel':''}}{{blist.m2_path=='driver'?'driver':''}}" openType="{{blist.m2_path=='custom'?'contact':''}}"></button>
+      <view bindtap="tabNav" class="aview" data-tab="tab2" data-url="../message/message" ></view>
+      <image class="item-img" mode="widthFix" src="https://teaimg.ioslide.com/navimg3.png"></image>
+      <view class="item-text" style="color: {{blist.sel_color}}" >Contact</view>
+    </view>
+      <view class="we7-bottom-item">
+      <button bindtap="{{blist.m3_path=='tel'?'tel':''}}{{blist.m3_path=='driver'?'driver':''}}" openType="{{blist.m3_path=='custom'?'contact':''}}"></button>
+      <view bindtap="tabNav" class="aview" data-tab="tab3" data-url="../contact/contact" ></view>
+      <image class="item-img" mode="widthFix" src="https://teaimg.ioslide.com/navimg2.png"></image>
+      <view class="item-text" style="color: {{blist.sel_color}}" >About</view>
+    </view>
+
+      <view class="we7-bottom-item">
+      <button bindtap="{{blist.m4_path=='tel'?'tel':''}}{{blist.m4_path=='driver'?'driver':''}}" openType="{{blist.m4_path=='custom'?'contact':''}}"></button>
+      <view bindtap="tabNav" class="aview" data-tab="tab4" data-url="../works/index" ></view>
+      <image class="item-img" mode="widthFix" src="https://teaimg.ioslide.com/navimg2.png"></image>
+      <view class="item-text" style="color: {{blist.sel_color}}" >Works</view>
+    </view>
+  
+  </view>
+</view>
+</view>
